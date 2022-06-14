@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MR Valentines</title>
+
+ 
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> 
+  <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+</head>
+<body>
+  <a-scene fog="type: linear; color: #a3d0ed; near:5; far:20">
+    <a-assets>
+      <a-asset-item id ="island-o" src="Krokotopia Island.obj"></a-asset-item>
+      <a-asset-item id ="island-m" src="Krokotopia Island.mtl"></a-asset-item>
+      
+  </a-assets>
+<a-sky color="#a3d0ed"></a-sky>
+<!-- Lights -->
+<a-light type="directional" castShadow="true" intensity="0.4" color="#D0EAF9;" position="5 3 1"></a-light>
+<a-light intensity="0.8" type="ambient" color="#B4C5EC"></a-light>
+
+
+
+<a-entity obj-model="obj: #island-o; mtl: #island-m" 
+position ="0 -3 0" 
+scale ="1.5 1.5 1.5"
+></a-entity>
+    <a-camera>
+      <a-text id="score-element" value="Score" position="-0.35 0.5 -0.8"></a-text>
+      <a-cursor></a-cursor>
+    </a-camera>
+    <a-entity laser-controls></a-entity>
+    <!-- Ocean -->
+<a-box depth="50" width="200" height="1" color="#7AD2F7" position="0 0 0" ></a-ocean>
+  </a-box>
+
+  <a-entity id="fish-model" gltf-model="fish/scene.gltf" position="0 1.5 -5"
+    scale="0.1 0.1 0.1"
+    animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 5000"
+    animation__collect="property: position; to: 0 0 0; dur: 300; startEvents: collected"
+    animation__minimize="property: scale; to: 0 0 0; dur: 300; startEvents: collected"></a-entity>
+
+  <script src="game.js"></script>
+  
+</body>
+</html>

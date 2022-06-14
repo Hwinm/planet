@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> 
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> 
+	<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  </head>
+  <body>
+  <a-scene>
+    <a-assets>
+        <a-asset-item id ="mars-rover" src="scene.gltf"></a-asset-item>
+        <!--<a-asset-item id ="mars-rover-m" src="3d-model/Rover.mtl"></a-asset-item>
+        <a-asset-item id ="mars-rover-o" src="3d-model/Rover.obj"></a-asset-item>-->
+    </a-assets>
+  
+     
+      <a-entity id="env" environment="preset: yavapai; horizonColor: #FFF0BA; skyColor:#F9E085"></a-entity>
+      <!--camera-->
+      <a-entity camera look-controls wasd-controls="acceleration:500"position="0 0 0">
+          <a-camera></a-camera>
+      </a-entity>
+      <!--mars rover-->
+      <!--<a-entity obj-model="obj: #mars-rover-o; mtl: #mars-rover-m" 
+                position ="0 0.4 0" 
+                scale ="0.05 0.05 0.05"
+                rotation="0 90 0"
+                animation__drive="dur:10000; from:10 0.4 0; to:-10 0.4 0; loop:-1; property: position"
+      ></a-entity>-->
+        <a-entity gltf-model="#mars-rover" 
+                  position ="0 0.4 0" 
+                  scale ="1.5 1.5 1.5"
+                  rotation="0 55 0"
+                  animation__drive="dur:15000; from:10 0.4 0; to:-10 0.4 0; loop:-1; property: position">
+        </a-entity>
+  </a-scene>
+
+</body>a
+
+ 
+</html>
